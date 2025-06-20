@@ -3,7 +3,6 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { projects } from "./old-ui/components/constants/constants";
 import OldUI from "./old-ui";
-const NewUI = React.lazy(() => import("./new-ui"));
 
 const App = () => {
   const titles = projects.map((project) => project.title);
@@ -16,7 +15,7 @@ const App = () => {
         name: "Online Interview Assessment System",
         description:
           "A fully Functional Online Interview Assessment System for Students and Professionals.",
-        url: "https://calendly.com/yashkapure06/book-a-call-at-the-earliest?month=2024-10",
+        url: "https://www.linkedin.com/in/shruti-shitole-ab2a89269/", // <-- updated to your LinkedIn
         thumbnailUrl: "/images/final-year.png",
         keywords: [
           "React.js",
@@ -30,6 +29,14 @@ const App = () => {
           "Node Mailer",
           "Express.js",
         ],
+      },
+      {
+        "@type": "CreativeWork",
+        name: "Shruti Shitole LinkedIn",
+        description: "Connect with Shruti Shitole on LinkedIn.",
+        url: "https://www.linkedin.com/in/shruti-shitole-ab2a89269/", // <-- updated to your LinkedIn
+        thumbnailUrl: "/images/linkedin.png", // Use your LinkedIn logo or any image
+        keywords: ["LinkedIn", "Profile", "Shruti Shitole"],
       },
       {
         "@type": "CreativeWork",
@@ -283,22 +290,7 @@ const App = () => {
         />
       </Helmet>
 
-      {!showNewUI ? (
-        <OldUI handleToggleUI={handleToggleUI} />
-      ) : (
-        <React.Suspense
-          fallback={
-            <div
-              className="flex items-center justify-center h-screen
-            "
-            >
-              <div className="text-2xl font-bold">Loading New UI...</div>
-            </div>
-          }
-        >
-          <NewUI handleToggleUI={handleToggleUI} />
-        </React.Suspense>
-      )}
+      <OldUI handleToggleUI={handleToggleUI} />
     </>
   );
 };

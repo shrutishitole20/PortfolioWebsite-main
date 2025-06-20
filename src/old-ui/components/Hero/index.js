@@ -101,11 +101,13 @@ const Hero = () => {
 
             {/* <Text> {/* Total visits : <span id="visits"></span> </Text> */}
             <Text color={"gray.400"}>
-              I am a front-end developer with 3 years of proven experience in
-              the field. I am skilled in Search Engine Optimization, Next.js,
-              React.js, Tailwind CSS, and JavaScript. I am passionate about
-              creating interactive and beautiful user interfaces, along with the
-              required functionalities on the front end.
+             Full Stack Developer | MCA Student | 
+             <br/>
+
+I'm currently pursuing my Master of Computer Applications (MCA) at Pimpri Chinchwad College of Engineering, Pune. With a strong foundation in front-end and back-end development, I enjoy building responsive, user-centric websites and solving real-world problems through code.
+
+I’m skilled in JavaScript, React.js, Node.js, Python, Django, and familiar with MongoDB, MySQL.
+I'm constantly learning, improving, and looking forward to contributing to impactful projects and dynamic teams.
               <Highlight
                 query="MERN / MEVN"
                 styles={{
@@ -178,7 +180,7 @@ const Hero = () => {
                       style={{ cursor: "pointer" }}
                       onClick={() => {
                         window.open(
-                          "https://drive.google.com/file/d/1D2gsimV47zEsubjK2urHGWpY_h-iLyBB/view",
+                          "https://drive.google.com/file/d/1cd2juBk8JJOu2N33nU67uZRPXafCuFk8/view?usp=drive_link",
                           "_blank"
                         );
                       }}
@@ -214,7 +216,7 @@ const Hero = () => {
               overflow={"hidden"}
             >
               <Image
-                alt={"Yash Kapure| Best Frontend Developer | Best FreeLancer"}
+                alt={"Shruti Shitole| Best Frontend Developer | Best FreeLancer"}
                 fit={"cover"}
                 align={"center"}
                 w={"100%"}
@@ -234,28 +236,28 @@ const Hero = () => {
           </Text>
 
           <a
-            href="https://github.com/Yashkapure06"
+            href="https://github.com/shrutishitole20"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
           <a
-            href="https://linkedin.com/in/yash-kapure"
+            href="https://linkedin.com/in/shruti-shitole"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </a>
           <a
-            href="https://www.instagram.com/_yashkapure_"
+            href="https://www.instagram.com/_shruuu20_"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faInstagram} size="2x" />
           </a>
           <a
-            href="https://twitter.com/KapureYash"
+            href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -10,6 +10,9 @@ import {
   StackDivider,
   Icon,
   useColorModeValue,
+  Box,
+  List,
+  ListItem,
 } from "@chakra-ui/react";
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiMongodb, SiExpress, SiHeroku, SiGit, SiJava } from "react-icons/si";
@@ -49,6 +52,9 @@ const Feature = ({ icon, iconBg }: FeatureProps) => {
 };
 
 const About = () => {
+  const aboutText = `
+  I am a front-end developer with a strong foundation in Search Engine Optimization, Next.js, React.js, Tailwind CSS, JavaScript, and Django. As a fresher, I am passionate about creating interactive and beautiful user interfaces, along with implementing essential front-end functionalities. One of my favorite technologies to work with is React.js, especially within the MERN / MEVN stack. My expertise includes developing high-scale applications using Next.js 14✨, React.js, and Django.
+  `;
   return (
     <Container className="" id="about" maxW={"5xl"} py={12} isLazy>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -66,16 +72,10 @@ const About = () => {
             About Me
           </Text>
           <Heading>
-            <Text>Hello! My name is Yash Kapure</Text>
+            <Text>Hello! My name is Shruti Shitole</Text>
           </Heading>
           <Text color={"gray.500"} fontSize={"lg"}>
-            I am a self-taught programmer with a passion for learning and
-            exploring new technologies. I have a strong background in FrontEnd
-            Development and improving full-stack development and am always eager
-            to expand my skillset and take on new challenges. In my free time, I
-            enjoy sipping on a cup of tea (or coffee) and watching a game of
-            cricket. As a dedicated and driven individual, I am constantly
-            seeking out opportunities to grow and improve as a programmer.
+            {aboutText}
           </Text>
           <Text color={"gray.500"} fontSize={"md"}>
             Some of the Stack I know
@@ -268,6 +268,40 @@ const About = () => {
               />
             </Stack>
           </Stack>
+          <Box>
+            <Heading as="h3" size="md">
+              Education
+            </Heading>
+            <List>
+              <ListItem>
+                MCA, Pimpri Chinchwad College of Engineering, Pune
+              </ListItem>
+            </List>
+          </Box>
+          <Box>
+            <Heading as="h3" size="md">
+              Work Experience
+            </Heading>
+            <List>
+              <ListItem>
+                Full Stack Developer - MERN, Unified Mentor (May 2025 - Aug 2025)
+              </ListItem>
+              <ListItem>
+                Front-End Developer - Django, Open Source Project (Sep 2024 - Dec
+                2024)
+              </ListItem>
+            </List>
+          </Box>
+          <Box>
+            <Heading as="h3" size="md">
+              Hobbies
+            </Heading>
+            <List>
+              <ListItem>UI/UX Design</ListItem>
+              <ListItem>Blogging</ListItem>
+              <ListItem>Learning new technologies</ListItem>
+            </List>
+          </Box>
         </Stack>
         <Flex>
           <Image

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ReactNode } from "react";
 import {
   Text,
@@ -23,17 +23,57 @@ import {
   AvatarBadge,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+// import { FaRegStar } from "react-icons/fa"; // removed extra mode icon
 
 const Navbar = ({ handleToggleUI }) => {
   const { colorMode, toggleColorMode } = useColorMode("dark");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // useeffect to set the initial color mode as dark
+  const [activeSection, setActiveSection] = useState("hero");
+
   useEffect(() => {
-    toggleColorMode();
+    const handleScroll = () => {
+      const sections = ["hero", "about", "experience", "projects", "contact"];
+      let current = "hero";
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el && window.scrollY + 80 >= el.offsetTop) {
+          current = section;
+        }
+      }
+      setActiveSection(current);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      {/* Show current mode at the very top with two toggle buttons */}
+      <div
+        style={{
+          width: "100%",
+          textAlign: "center",
+          padding: "4px 0",
+          background: "#87ceeb",
+          color: "#232946",
+          fontWeight: 600,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "16px",
+        }}
+      >
+        <Button
+          size="sm"
+          leftIcon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
+          onClick={toggleColorMode}
+          variant="outline"
+          colorScheme="gray"
+        >
+          {colorMode === "dark" ? "Light" : "Dark"}
+        </Button>
+      </div>
+      <Box bg="#87ceeb" px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -56,7 +96,7 @@ const Navbar = ({ handleToggleUI }) => {
                 fontWeight="extrabold"
                 fontFamily="sans-serif"
               >
-                Yash Kapure
+                Shruti Shitole
               </Box>
             </Link>
 
@@ -65,90 +105,77 @@ const Navbar = ({ handleToggleUI }) => {
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              {/* {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))} */}
               <Link
                 px={2}
-                spacing={4}
-                display={{ base: "none", md: "flex" }}
                 py={1}
                 rounded={"md"}
+                href={"#hero"}
+                bg={activeSection === "hero" ? "blue.100" : "transparent"}
+                color={activeSection === "hero" ? "blue.700" : undefined}
                 _hover={{
                   textDecoration: "none",
-                  bg: useColorModeValue("gray.200", "gray.700"),
+                  bg: useColorModeValue("gray.200", "gray.100"),
                 }}
-                href={"#"}
               >
                 Home
               </Link>
               <Link
                 px={2}
-                spacing={4}
-                display={{ base: "none", md: "flex" }}
                 py={1}
                 rounded={"md"}
+                href={"#about"}
+                bg={activeSection === "about" ? "blue.100" : "transparent"}
+                color={activeSection === "about" ? "blue.700" : undefined}
                 _hover={{
                   textDecoration: "none",
-                  bg: useColorModeValue("gray.200", "gray.700"),
+                  bg: useColorModeValue("gray.200", "gray.100"),
                 }}
-                href={"#about"}
               >
                 About
               </Link>
               <Link
                 px={2}
-                spacing={4}
-                display={{ base: "none", md: "flex" }}
                 py={1}
                 rounded={"md"}
+                href={"#experience"}
+                bg={
+                  activeSection === "experience" ? "blue.100" : "transparent"
+                }
+                color={
+                  activeSection === "experience" ? "blue.700" : undefined
+                }
                 _hover={{
                   textDecoration: "none",
-                  bg: useColorModeValue("gray.200", "gray.700"),
+                  bg: useColorModeValue("gray.200", "gray.100"),
                 }}
-                href={"#experience"}
               >
                 Experience
               </Link>
               <Link
                 px={2}
-                spacing={4}
-                display={{ base: "none", md: "flex" }}
                 py={1}
                 rounded={"md"}
+                href={"#projects"}
+                bg={activeSection === "projects" ? "blue.100" : "transparent"}
+                color={activeSection === "projects" ? "blue.700" : undefined}
                 _hover={{
                   textDecoration: "none",
-                  bg: useColorModeValue("gray.200", "gray.700"),
+                  bg: useColorModeValue("gray.200", "gray.100"),
                 }}
-                href={"#projects"}
               >
                 Projects
               </Link>
-              {/* <Link
-                px={2}
-                spacing={4}
-                display={{ base: "none", md: "flex" }}
-                py={1}
-                rounded={"md"}
-                _hover={{
-                  textDecoration: "none",
-                  bg: useColorModeValue("gray.200", "gray.700"),
-                }}
-                href={"#blog"}
-              >
-                Blog
-              </Link> */}
               <Link
                 px={2}
-                spacing={4}
-                display={{ base: "none", md: "flex" }}
                 py={1}
                 rounded={"md"}
+                href={"#contact"}
+                bg={activeSection === "contact" ? "blue.100" : "transparent"}
+                color={activeSection === "contact" ? "blue.700" : undefined}
                 _hover={{
                   textDecoration: "none",
-                  bg: useColorModeValue("gray.200", "gray.700"),
+                  bg: useColorModeValue("gray.200", "gray.100"),
                 }}
-                href={"#contact"}
               >
                 Contact
               </Link>
@@ -156,16 +183,36 @@ const Navbar = ({ handleToggleUI }) => {
           </HStack>
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
-              <Button
-                sx={{
-                  bg: useColorModeValue("gray.200", "gray.700"),
-                  border: "2px solid",
-                  borderColor: useColorModeValue("#7928CA", " #FF0080"),
-                }}
-                onClick={handleToggleUI}
-              >
-                <Text>Click to see new UI</Text>
-              </Button>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                {/* LinkedIn profile link and icon */}
+                <a
+                  href="https://www.linkedin.com/in/shruti-shitole-ab2a89269/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    color: "inherit",
+                    fontWeight: 500,
+                    fontSize: "1rem",
+                    gap: "8px",
+                  }}
+                >
+                  {/* LinkedIn SVG icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="#0A66C2"
+                    style={{ borderRadius: "4px", background: "#fff" }}
+                  >
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z" />
+                  </svg>
+                  shruti-shitole
+                </a>
+              </div>
 
               <Menu>
                 <MenuButton
@@ -177,7 +224,7 @@ const Navbar = ({ handleToggleUI }) => {
                 >
                   <Avatar
                     size={"sm"}
-                    src={"https://avatars.githubusercontent.com/u/61585443?v=4"}
+                    src={"https://github.com/settings/profile"}
                   >
                     <AvatarBadge
                       className="blink"
@@ -192,7 +239,7 @@ const Navbar = ({ handleToggleUI }) => {
                     <Avatar
                       size={"2xl"}
                       src={
-                        "https://avatars.githubusercontent.com/u/61585443?v=4"
+                        "https://github.com/settings/profile"
                       }
                     />
                   </Center>
@@ -200,7 +247,7 @@ const Navbar = ({ handleToggleUI }) => {
                   <Center>
                     <Box>
                       <Text fontWeight="bold">
-                        Yash Kapure
+                        Shruti Shitole
                         <br />
                         <Badge ml="1" colorScheme="green">
                           ACTIVE - Freelancer

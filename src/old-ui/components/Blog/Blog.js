@@ -202,4 +202,5 @@ const ArticleList = () => {
   );
 };
 
-export default ArticleList;
+// Remove everything from this file to disable the Blog page/component
+export default () => null;

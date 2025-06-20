@@ -14,41 +14,22 @@ import {
   useSteps,
   Progress,
 } from "@chakra-ui/react";
+
+// Only your new experience entry
 const steps = [
   {
-    title: "Full Stack Developer Part-Time (Remote) - MEVN",
-    duration: "3rd May 2023 - 30th Nov 2023",
-    companyName: "Dr. Manisha's Yoga Institute",
-    description:
-      "Worked remotely as a full stack developer, Stacks used:    Vue.js (frontend), MongoDB, Node.js, Express.js, Firebase    for blogging    A fully Authenticated Admin Panel is also created to    perform CRUD Operations    Using Tailwind CSS to design the whole website    Worked independently to create engaging web content and    reusable components",
-  },
-  {
-    title: "Software Developer Trainee Full-Time (On-Site) -  Salesforce",
-    duration: "1st Aug 2023 - 30th Nov 2023",
-    companyName: "Extentia Information Technology",
-    description:
-      "Worked as a Software Developer Trainee. Technologies I got to learn over here is Salesforce. Along with salesforce, I worked on Programming Language like Apex, Aura and JavaScript.",
-  },
-  {
-    title: "Front End Developer Contract (Remote) - Next.js",
-    duration: "1st Nov 2023 - 31th Dec 2023",
-    companyName: "Care-9 Fertility Clinic/Hospital",
-    description:
-      "Worked remotely on the project, designed the whole using Tailwind CSS. Developed Front-end using latest technologies which is basically a JavaScript Library React.js whose expanded version is NEXT.JS 14 along with basic TypeScript.",
-  },
-  {
     title: "Full Stack Developer - MERN",
-    duration: "24th Dec 2021 - 30th Nov 2024",
-    companyName: "Anandlok Ayurveda & Panchakarma Hospital",
+    duration: "20th May 2025 - 20th Aug 2025",
+    companyName: "Unified Mentor",
     description:
-      "Designed and developed a fully functional website using the latest technologies such as Next.js and React.js.     Worked independently to create engaging web content and    reusable components.    Contributed to the development of the website and helped    to improve the performance of the website",
+      "Designed and developed a fully functional website using the latest technologies such as Next.js and React.js. Worked independently to create engaging web content and reusable components. Contributed to the development of the website and helped to improve the performance of the website",
   },
   {
-    title: "React.js Developer Full-Time (On-Site)",
-    duration: "1st Jan 2024 - 30th Nov 2024",
-    companyName: "Octane Apps",
+    title: "Front-End Developer - Django",
+    duration: "1st Sep 2024 - 1st Dec 2024",
+    companyName: "Open Source Project",
     description:
-      "Working in one of the famous and trending JavaScript Library React.js along with it's Framework Next.js. Developing new Projects, working on front-end development and, maintaining and managing old projects.",
+      "Developed and maintained user interfaces using Django and React.js. Collaborated with backend developers to integrate RESTful APIs and ensured responsive design with Tailwind CSS. Enhanced SEO and accessibility for better user engagement.",
   },
 ];
 

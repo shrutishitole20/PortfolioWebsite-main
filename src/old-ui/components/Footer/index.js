@@ -10,7 +10,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaYoutube, FaGithub, FaLinkedin } from "react-icons/fa";
 import { ReactNode } from "react";
 
 const Logo = (props: any) => {
@@ -38,9 +38,9 @@ const SocialButton = ({
   label,
   href,
 }: {
-  children: ReactNode,
-  label: string,
-  href: string,
+  children: ReactNode;
+  label: string;
+  href: string;
 }) => {
   return (
     <chakra.button
@@ -65,141 +65,46 @@ const SocialButton = ({
   );
 };
 
-const Footer = () => {
-  return (
-    <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
-    >
-      <Container
-        as={Stack}
-        maxW={"6xl"}
-        py={4}
-        spacing={4}
-        justify={"center"}
-        align={"center"}
-      >
-        <HStack spacing={8} alignItems={"center"}>
-          <Box
-            bgGradient="linear(to-l, #7928CA, #FF0080)"
-            bgClip="text"
-            fontSize="2xl"
-            fontWeight="extrabold"
-            fontFamily="sans-serif"
-          >
-            Yash Kapure
-          </Box>
-          <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-            <Link
-              px={2}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-              py={1}
-              rounded={"md"}
-              _hover={{
-                textDecoration: "none",
-                bg: useColorModeValue("gray.200", "gray.700"),
-              }}
-              href={"#"}
-            >
-              Home
-            </Link>
-            <Link
-              px={2}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-              py={1}
-              rounded={"md"}
-              _hover={{
-                textDecoration: "none",
-                bg: useColorModeValue("gray.200", "gray.700"),
-              }}
-              href={"#about"}
-            >
-              About
-            </Link>
-            <Link
-              px={2}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-              py={1}
-              rounded={"md"}
-              _hover={{
-                textDecoration: "none",
-                bg: useColorModeValue("gray.200", "gray.700"),
-              }}
-              href={"#projects"}
-            >
-              Projects
-            </Link>
-            <Link
-              px={2}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-              py={1}
-              rounded={"md"}
-              _hover={{
-                textDecoration: "none",
-                bg: useColorModeValue("gray.200", "gray.700"),
-              }}
-              href={"#blog"}
-            >
-              Blog
-            </Link>
-            <Link
-              px={2}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-              py={1}
-              rounded={"md"}
-              _hover={{
-                textDecoration: "none",
-                bg: useColorModeValue("gray.200", "gray.700"),
-              }}
-              href={"#contact"}
-            >
-              Contact
-            </Link>
-          </HStack>
-        </HStack>
-      </Container>
-
-      <Box
-        borderTopWidth={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.700")}
-      >
-        <Container
-          as={Stack}
-          maxW={"6xl"}
-          py={4}
-          direction={{ base: "column", md: "row" }}
-          spacing={4}
-          justify={{ base: "center", md: "space-between" }}
-          align={{ base: "center", md: "center" }}
+const Footer = () => (
+  <footer style={{ background: "#232946", color: "#fff", padding: "24px 0" }}>
+    <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <span style={{ fontSize: "1.2rem" }}>Connect with me :</span>
+        <a
+          href="https://github.com/shrutishitole20"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-block", fontSize: 28 }}
         >
-          <Text>© 2023 Yash Kapure. All rights reserved</Text>
-          <Stack direction={"row"} spacing={6}>
-            <SocialButton
-              label={"Twitter"}
-              href={"https://twitter.com/KapureYash"}
-              target={"_blank"}
-            >
-              <FaTwitter />
-            </SocialButton>
-
-            <SocialButton
-              label={"Instagram"}
-              href={"https://www.instagram.com/_yashkapure_/"}
-              target={"_blank"}
-            >
-              <FaInstagram />
-            </SocialButton>
-          </Stack>
-        </Container>
-      </Box>
-    </Box>
-  );
-};
+          <FaGithub />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/shruti-shitole-ab2a89269/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-block", fontSize: 28 }}
+        >
+          <FaLinkedin />
+        </a>
+        <a
+          href="https://instagram.com/shrutishitole20"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-block", fontSize: 28 }}
+        >
+          <FaInstagram />
+        </a>
+        <a
+          href="https://twitter.com/shrutishitole20"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-block", fontSize: 28 }}
+        >
+          <FaTwitter />
+        </a>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

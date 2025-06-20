@@ -1,26 +1,63 @@
 import React from "react";
-// import { useDispatch } from "react-redux";
 import {
-  Badge,
+  Box,
   Button,
   Center,
+  Divider,
   Flex,
   Heading,
   Image,
   Link,
-  Stack,
   SimpleGrid,
   Text,
-  Container,
   useColorModeValue,
-  Divider,
 } from "@chakra-ui/react";
-import { projects } from "../constants/constants";
-
 import { BsGithub } from "react-icons/bs";
 import styled from "styled-components";
 
-const Projects = ({ post, _id }) => {
+const projects = [
+  {
+    title: "Unified Mentor Website",
+    description: "A fully functional MERN stack website for Unified Mentor.",
+    image: "/images/unifiedmentor.png",
+    source: "https://github.com/yourusername/unifiedmentor",
+    visit: "https://unifiedmentor.com",
+    tags: ["MERN", "Node.js", "Express", "MongoDB"],
+    likeCount: 10,
+  },
+  {
+    title: "Open Source Django UI",
+    description: "Front-end with Django and React.js for open source.",
+    image: "/images/django_project.png",
+    source: "https://github.com/yourusername/django-react-ui",
+    visit: "https://django-react-ui.com",
+    tags: ["Django", "React", "JavaScript"],
+    likeCount: 5,
+  },
+  // Remove or comment out the "Unified Mentor Website" and "Open Source Django UI" projects if you want to add them later.
+  // Example:
+  // {
+  //   title: "Unified Mentor Website",
+  //   description: "A fully functional MERN stack website for Unified Mentor.",
+  //   image: "/images/unifiedmentor.png",
+  //   source: "https://github.com/yourusername/unifiedmentor",
+  //   visit: "https://unifiedmentor.com",
+  //   tags: ["MERN", "Node.js", "Express", "MongoDB"],
+  //   likeCount: 10,
+  // },
+  // {
+  //   title: "Open Source Django UI",
+  //   description: "Front-end with Django and React.js for open source.",
+  //   image: "/images/django_project.png",
+  //   source: "https://github.com/yourusername/django-react-ui",
+  //   visit: "https://django-react-ui.com",
+  //   tags: ["Django", "React", "JavaScript"],
+  //   likeCount: 5,
+  // },
+  // ...other existing projects...
+];
+
+const Projects = () => {
   const TagList = styled.ul`
     display: flex;
     padding-left: 10px;
@@ -45,7 +82,7 @@ const Projects = ({ post, _id }) => {
     border: 0;
     background: #ff0080;
   `;
-  // const dispatch = useDispatch();
+
   return (
     <>
       <Divider />
@@ -70,113 +107,92 @@ const Projects = ({ post, _id }) => {
         </Heading>
       </Center>
       <Hr />
-      {/* <Center py={2}>
-        <Text
-          Text
-          color={useColorModeValue("black", "white")}
-          fontSize={20}
-          style={{ textAlign: "center", padding: " 0 0.5em 0 0.5em " }}
-        >
-          <i>
-            “Learning to write programs stretches your mind, and helps you think
-            better, creates a way of thinking about things that I think is
-            helpful in all domains.”
-          </i>
-        </Text>
-      </Center>
-      <Center>
-        <i style={{ textAlign: "center" }}>
-          —Bill Gates, Co-Chairman, Bill & Melinda Gates Foundation, Co-Founder,
-          Microsoft
-        </i>
-      </Center> */}
-      {/* <Hr /> */}
-      {/* <Container id="about" > */}
-      {/* <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}> */}
-      {/* <Center py={6}> */}
-      <section className=" main" id="about">
-        {projects.map(
-          ({
-            id,
-            image,
-            title,
-            description,
-            tags,
-            source,
-            visit,
-            likeCount,
-          }) => (
-            <div className=" card">
-              <img
-                style={{ width: "100%", objectFit: "contain" }}
-                src={image}
-                alt={title}
-              />
-              <div className="card-body">
-                <h6>{title}</h6>
-                <p>{description}</p>
+      <section className="main" id="about">
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+          {projects.map(
+            ({
+              title,
+              description,
+              image,
+              tags,
+              source,
+              visit,
+              likeCount,
+            }) => (
+              <Box
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                p={4}
+                bg="white"
+                key={title}
+              >
+                <Image
+                  src={image}
+                  alt={title}
+                  mb={4}
+                  borderRadius="md"
+                  style={{ width: "100%", objectFit: "contain" }}
+                />
+                <Heading as="h3" size="md" mb={2}>
+                  {title}
+                </Heading>
+                <Text mb={2}>{description}</Text>
                 <TitleContent sx={{ textAlign: "center" }}>
                   <strong>Stack</strong>
                 </TitleContent>
                 <TagList sx={{ textAlign: "center" }}>
                   {tags.map((tag, index) => (
-                    <Text style={{ fontWeight: "600" }}>
-                      <Tag key={index}>{tag}</Tag>
+                    <Text style={{ fontWeight: "600" }} key={index}>
+                      <Tag>{tag}</Tag>
                     </Text>
                   ))}
                 </TagList>
-                <div>
-                  <Stack
-                    width={"100%"}
-                    mt={"1rem"}
-                    direction={"row"}
-                    padding={1}
-                    justifyContent={"space-between"}
-                    alignItems={"center"}
+                <Flex
+                  width={"100%"}
+                  mt={"1rem"}
+                  direction={"row"}
+                  padding={1}
+                  justifyContent={"space-between"}
+                  alignItems={"center"}
+                >
+                  <Button
+                    flex={1}
+                    fontSize={"sm"}
+                    rounded={"full"}
+                    _focus={{
+                      bg: "gray.200",
+                    }}
+                    onClick={() => {
+                      window.open(visit, "_blank");
+                    }}
                   >
-                    <Button
-                      flex={1}
-                      fontSize={"sm"}
-                      rounded={"full"}
-                      _focus={{
-                        bg: "gray.200",
-                      }}
-                      onClick={() => {
-                        window.open(visit, "_blank");
-                      }}
-                    >
-                      Visit
-                    </Button>
-                    <Button
-                      flex={1}
-                      fontSize={"sm"}
-                      rounded={"full"}
-                      bg={"black"}
-                      color={"white"}
-                      boxShadow={
-                        "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
-                      }
-                      _hover={{
-                        bgGradient: "linear(to-r, #7928CA, #FF0080)",
-                      }}
-                      // _focus={{
-                      //   bg: "blue.500",
-                      // }}
-                      onClick={() => {
-                        window.open(source, "_blank");
-                      }}
-                    >
-                      {<BsGithub size="28px" />}
-                    </Button>
-                  </Stack>
-                </div>
-              </div>
-            </div>
-          )
-        )}
+                    Visit
+                  </Button>
+                  <Button
+                    flex={1}
+                    fontSize={"sm"}
+                    rounded={"full"}
+                    bg={"black"}
+                    color={"white"}
+                    boxShadow={
+                      "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
+                    }
+                    _hover={{
+                      bgGradient: "linear(to-r, #7928CA, #FF0080)",
+                    }}
+                    onClick={() => {
+                      window.open(source, "_blank");
+                    }}
+                  >
+                    {<BsGithub size="28px" />}
+                  </Button>
+                </Flex>
+              </Box>
+            )
+          )}
+        </SimpleGrid>
       </section>
-      {/* </Center> */}
-      {/* </Container> */}
     </>
   );
 };
